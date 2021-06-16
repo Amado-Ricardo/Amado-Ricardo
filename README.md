@@ -32,6 +32,8 @@ Delete movies
 Each movie should have a "delete" button
 When this button is clicked, your javascript should send a DELETE request
 
+
+
 Bonuses
 Add a disabled attribute to buttons while their corresponding ajax request is still pending.
 Show a loading animation instead of just text that says "loading...".
