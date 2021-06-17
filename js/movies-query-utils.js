@@ -4,8 +4,12 @@ $.ajax('https://spice-ultra-nape.glitch.me/movies')
         console.log(response);
         setTimeout(function () {
             $('#loader').hide();
-        }, 4000);
-        renderMovies(response);
+            renderMovies(response);
+            renderAddTitleRating();
+        }, 2000);
+
+        // renderMovies(response);
+        // renderAddTitleRating();
         return response;
     })
 
