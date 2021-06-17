@@ -1,16 +1,23 @@
-$.ajax('https://spice-ultra-nape.glitch.me/movies')
 
-    .then(response => {
-        console.log(response);
-        setTimeout(function () {
+
+function getAllMovies(){
+    $.ajax('https://spice-ultra-nape.glitch.me/movies')
+        .then(response => {
             $('#loader').hide();
             renderMovies(response);
-            renderAddTitleRating();
-        }, 2000);
+        })
+}
 
-        // renderMovies(response);
-        // renderAddTitleRating();
-        return response;
+function postMovie(){
+
+    let title = $('#add-title').val();
+    let rating = $('#add-rating').val();
+
+    $.post('https://spice-ultra-nape.glitch.me/movies', {title, rating}, function (response){
+        console.log(response);
+        getAllMovies();
     })
+
+}
 
 

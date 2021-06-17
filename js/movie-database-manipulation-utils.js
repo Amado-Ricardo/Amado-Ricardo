@@ -1,21 +1,19 @@
-function renderAddTitleRating() {
+init();
+
+function renderAddForm() {
 
     $('#addMoviesRatings').append(`   
-   <form name="Add movies" method="POST" action="pageHandlingUpdateRequestOnServer">
-        <label>Movie:</label>
+   <form name="Add movies">
+        <input id="add-title" name="" placeholder="Movie Title">
         <br>
-        <input name="">
-        <br>
-        <label>Rating:</label>
-        <br>
-        <input name="">
+        <input id="add-rating" name="" placeholder="Rating">
         <br><br>
-        <a href="#" class="btn btn-primary" onclick="addTitleRating()">Add</a>
+        <a href="#" class="btn btn-primary" onclick="postMovie()">Add</a>
     </form>`)
-
 
 }
 
-function addTitleRating(){
-
+function init() {
+    getAllMovies();
+    renderAddForm();
 }

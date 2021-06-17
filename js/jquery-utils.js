@@ -1,24 +1,28 @@
 
 function renderMovies(data){
 
+    $('#movie-container').empty();
     // console.log(data);
+    data.forEach(function (m) {
+        renderMovie(m);
+    })
+}
 
-    for(let i = 0; i < data.length; i++){
+function renderMovie(movie){
 
-        let actors = data[i].actors;
-        console.log("here is our actors: " + actors);
-        let director = data[i].director;
-        console.log("here is our director: " + director);
-        let moviePoster = data[i].poster;
-        let movieTitle = data[i].title;
-        let genre = data[i].genre;
-        let year = data[i].year;
-        let plot = data[i].plot;
-        let rating = data[i].rating;
-
+//todo pass movie properties directly to template literal
+    let actors = movie.actors;
+    let director = movie.director;
+    let moviePoster = movie.poster;
+    let movieTitle = movie.title;
+    let genre = movie.genre;
+    let year = movie.year;
+    let plot = movie.plot;
+    let rating = movie.rating;
 
 
-     $('#movie-container').append(`<div class="card" style="width: 18rem;">
+
+    $('#movie-container').append(`<div class="card" style="width: 18rem;">
   <img src=${moviePoster} class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${movieTitle} (${year})</h5>
@@ -28,8 +32,4 @@ function renderMovies(data){
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>`)
-
-
-
-    }
 }
