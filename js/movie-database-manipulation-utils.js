@@ -10,8 +10,12 @@ function renderAddTitleRating() {
         <br>
         <input name="">
         <br><br>
-        <a href="#" class="btn btn-primary">Add</a>
+        <a href="#" class="btn btn-primary" onclick="addTitleRating()">Add</a>
     </form>`)
 
+
+}
+
+function addTitleRating(){
 
 }
