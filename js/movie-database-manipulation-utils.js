@@ -3,7 +3,7 @@ init();
 function renderAddForm() {
 
     $('#addMoviesRatings').append(`   
-   <form name="Add movies">
+   <form name="Add movie">
         <input id="add-title" name="" placeholder="Movie Title">
         <br>
         <input id="add-rating" name="" placeholder="Rating">
@@ -16,4 +16,20 @@ function renderAddForm() {
 function init() {
     getAllMovies();
     renderAddForm();
+}
+
+function renderEditForm(id){
+    $('#edit-movie').append(`
+    <form name="Edit movie">
+    <input id="edit-title" placeholder="Movie Title / Year">
+    <br>
+    <input id="edit-genre" placeholder="Genre">
+    <input id="edit-actor" placeholder="Actor">
+    <input id="edit-director" placeholder="Director">
+    <input id="edit-plot" placeholder="Plot">
+    <input id="edit-rating" placeholder="Rating">
+    <button class="btn btn-primary" onclick="postEdit(event,${id})">Update</button>
+</form>
+    
+    `)
 }

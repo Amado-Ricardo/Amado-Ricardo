@@ -10,26 +10,19 @@ function renderMovies(data){
 
 function renderMovie(movie){
 
-//todo pass movie properties directly to template literal
-    let actors = movie.actors;
-    let director = movie.director;
-    let moviePoster = movie.poster;
-    let movieTitle = movie.title;
-    let genre = movie.genre;
-    let year = movie.year;
-    let plot = movie.plot;
-    let rating = movie.rating;
-
-
-
     $('#movie-container').append(`<div class="card" style="width: 18rem;">
-  <img src=${moviePoster} class="card-img-top" alt="...">
+  <img src=${movie.poster} class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">${movieTitle} (${year})</h5>
-    <p class="card-text">${genre}</p>
-    <p class="card-text">${plot}</p>
-    <p class="card-text">Rating: ${rating} / 5</p>
+    <h5 class="card-title">${movie.title} (${movie.year})</h5>
+    <p class="card-text">${movie.genre}</p>
+    <p class="card-text">Actors: ${movie.actors}</p>
+    <p class="card-text">Director: ${movie.director}</p>
+    <p class="card-text">${movie.plot}</p>
+    <p class="card-text">Rating: ${movie.rating} / 5</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
+    <button class="btn btn-primary" onclick="renderEditForm(${movie.id})">Edit</button>
   </div>
 </div>`)
 }
+
+
