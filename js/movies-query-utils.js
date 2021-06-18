@@ -19,17 +19,20 @@ function postMovie() {
 }
 
 function postEdit(e, id) {
+
     e.preventDefault();
 
     let title = $('#edit-title').val();
+    let year = $('#edit-year').val();
     let genre = $('#edit-genre').val();
     let actor = $('#edit-actor').val();
     let director = $('#edit-director').val();
     let plot = $('#edit-plot').val();
     let rating = $('#edit-rating').val();
+    let poster = $('#edit-poster').val();
 
     let obj = {
-        title, genre, actor, director, plot, rating,
+        title, genre, actor, director, plot, rating, year, poster
     }
     console.log(obj);
 
@@ -43,5 +46,15 @@ function postEdit(e, id) {
         console.log(res)
     })
 
+}
 
+function sendDelete(id){
+
+    $.ajax(`https://spice-ultra-nape.glitch.me/movies/${id}`,{
+    method: "DELETE",
+}).done(res => {getAllMovies()})
+    .then(response => console.log(response))
+    .catch(err => {
+        console.log('error: ' + err);
+    });
 }
