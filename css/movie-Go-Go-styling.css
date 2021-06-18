@@ -34,3 +34,60 @@
         height: 32px;
     }
 }
+
+.logo-div {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.bi-facebook {
+    font-size: 40px;
+    color: #4267B2;
+}
+
+.bi-discord {
+    font-size: 40px;
+    color: #7289da;
+}
+.bi-twitter {
+    font-size: 40px;
+    color: #1DA1F2;
+}
+.bi-reddit {
+    font-size: 40px;
+    color: #FF4500;
+}
+
+.footer-container {
+    width: 100%;
+}
+
+.footer {
+    background-color: #ffffff;
+}
+
+body {
+    background-color: #1e272e;
+}
+
+.header-container {
+    width: 100%;
+    background-color: #ffffff;
+
+}
+
+#movie-container {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 1rem;
+    place-items: start center;
+}
+
+.card-img-top {
+    max-height: 50vh;
+    object-fit: cover;
+    object-position: center top;
+}
