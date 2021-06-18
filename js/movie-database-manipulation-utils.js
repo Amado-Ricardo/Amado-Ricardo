@@ -10,7 +10,6 @@ function renderAddForm() {
         <br><br>
         <a href="#" class="btn btn-primary" onclick="postMovie()">Add</a>
     </form>`)
-
 }
 
 function init() {
@@ -19,8 +18,6 @@ function init() {
 }
 
 function renderEditForm(id){
-
-
 
     $('#edit-movie').append(`
     <form name="Edit movie">
