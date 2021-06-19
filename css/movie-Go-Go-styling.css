@@ -1,163 +1,193 @@
-.lds-facebook {
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
-}
-.lds-facebook div {
-    display: inline-block;
-    position: absolute;
-    left: 8px;
-    width: 16px;
-    background: black;
-    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-}
-.lds-facebook div:nth-child(1) {
-    left: 8px;
-    animation-delay: -0.24s;
-}
-.lds-facebook div:nth-child(2) {
-    left: 32px;
-    animation-delay: -0.12s;
-}
-.lds-facebook div:nth-child(3) {
-    left: 56px;
-    animation-delay: 0;
-}
-@keyframes lds-facebook {
-    0% {
-        top: 8px;
-        height: 64px;
+@media only screen and (max-width: 600px) {
+
+    #neon-header {
+        margin-top: 5em;
     }
-    50%, 100% {
-        top: 24px;
-        height: 32px;
+
+    .footer {
+        display: none;
     }
-}
 
-.logo-div {
-    display: flex;
-    justify-content: space-around;
-
-}
-
-.bi-facebook {
-    font-size: 40px;
-    color: #4267B2;
-}
-
-.bi-discord {
-    font-size: 40px;
-    color: #7289da;
-}
-.bi-twitter {
-    font-size: 40px;
-    color: #1DA1F2;
-}
-.bi-reddit {
-    font-size: 40px;
-    color: #FF4500;
-}
-
-.footer-container {
-    width: 100%;
-}
-
-.footer {
-    width: 100%;
-    background-color: #ffffff;
-}
-
-body {
-    background-color: #1e272e;
-}
-
-.header-container {
-    width: 100%;
-    background-color: #ffffff;
-
-}
-
-#movie-container {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 1fr;
-    gap: 0.5rem;
-    place-items: start center;
-}
-
-.card-img-top {
-    max-height: 50vh;
-    object-fit: cover;
-    object-position: center top;
-}
-
-.header-container {
-    background-color: #1e272e;
-}
-
-
-/*Neon text for card body*/
-
-@font-face {
-    font-family: neon;
-    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
-}
-
-
-
-.neon {
-    font-family: neon;
-    color: #FB4264;
-    font-size: 9vw;
-
-    line-height: 9vw;
-    text-shadow: 0 0 3vw #F40A35;
-}
-
-.flux {
-    font-family: neon;
-    color: #426DFB;
-    font-size: 9vw;
-
-    line-height: 9vw;
-    text-shadow: 0 0 3vw #2356FF;
-}
-
-.neon {
-    animation: neon 1s ease infinite;
-    -moz-animation: neon 1s ease infinite;
-    -webkit-animation: neon 1s ease infinite;
-}
-
-@keyframes neon {
-    0%,
-    100% {
-        text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
-        color: #FED128;
+    .card {
+        margin: auto;
     }
-    50% {
-        text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
-        color: #806914;
-    }
+
 }
 
-.flux {
-    animation: flux 2s linear infinite;
-    -moz-animation: flux 2s linear infinite;
-    -webkit-animation: flux 2s linear infinite;
-    -o-animation: flux 2s linear infinite;
+    .lds-facebook {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
+    .lds-facebook div {
+        display: inline-block;
+        position: absolute;
+        left: 8px;
+        width: 16px;
+        background: black;
+        animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    }
+    .lds-facebook div:nth-child(1) {
+        left: 8px;
+        animation-delay: -0.24s;
+    }
+    .lds-facebook div:nth-child(2) {
+        left: 32px;
+        animation-delay: -0.12s;
+    }
+    .lds-facebook div:nth-child(3) {
+        left: 56px;
+        animation-delay: 0;
+    }
+
+    @keyframes lds-facebook {
+
+            0% {
+                top: 8px;
+                height: 64px;
+            }
+            50%, 100% {
+                top: 24px;
+                height: 32px;
+            }
+    }
+
+@media only screen and (min-width: 600px) {
+
+    #neon-header {
+        margin-top: 10em;
+    }
+
+    .logo-div {
+        display: flex;
+        justify-content: space-around;
+
+    }
+
+    .bi-facebook {
+        font-size: 40px;
+        color: #4267B2;
+    }
+
+    .bi-discord {
+        font-size: 40px;
+        color: #7289da;
+    }
+
+    .bi-twitter {
+        font-size: 40px;
+        color: #1DA1F2;
+    }
+
+    .bi-reddit {
+        font-size: 40px;
+        color: #FF4500;
+    }
+
+    .footer-container {
+        width: 100%;
+    }
+
+    .footer {
+        width: 100%;
+        background-color: #ffffff;
+    }
+
+    #movie-container {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 1fr;
+        gap: 0.5rem;
+        place-items: start center;
+    }
+
+    .card-img-top {
+        max-height: 50vh;
+        object-fit: cover;
+        object-position: center top;
+        }
 }
 
-@keyframes flux {
-    0%,
-    100% {
-        text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
-        color: #28D7FE;
+    body {
+        background-color: black;
     }
-    50% {
-        text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
-        color: #146C80;
+
+    .card-body {
+        background-color: #1e272e;
     }
-}
+
+    .card-text {
+        color: white;
+    }
+
+    .card-title {
+        color: white;
+    }
+
+
+    /*Neon text for Header*/
+
+    @font-face {
+        font-family: neon;
+        src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+    }
+
+    .neon {
+        font-family: neon;
+        color: #FB4264;
+        font-size: 9vw;
+
+        line-height: 9vw;
+        text-shadow: 0 0 3vw #F40A35;
+    }
+
+    .flux {
+        font-family: neon;
+        color: #426DFB;
+        font-size: 9vw;
+
+        line-height: 9vw;
+        text-shadow: 0 0 3vw #2356FF;
+    }
+
+    .neon {
+        animation: neon 1s ease infinite;
+        -moz-animation: neon 1s ease infinite;
+        -webkit-animation: neon 1s ease infinite;
+    }
+
+    @keyframes neon {
+        0%,
+        100% {
+            text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+            color: #FED128;
+        }
+        50% {
+            text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+            color: #806914;
+        }
+    }
+
+    .flux {
+        animation: flux 2s linear infinite;
+        -moz-animation: flux 2s linear infinite;
+        -webkit-animation: flux 2s linear infinite;
+        -o-animation: flux 2s linear infinite;
+    }
+
+    @keyframes flux {
+        0%,
+        100% {
+            text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+            color: #28D7FE;
+        }
+        50% {
+            text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+            color: #146C80;
+        }
+    }
+
+
+
