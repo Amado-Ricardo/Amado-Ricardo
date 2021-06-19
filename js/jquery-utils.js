@@ -10,7 +10,8 @@ function renderMovie(movie) {
 
     $('#edit-movie').empty();
 
-    $('#movie-container').append(`<div class="card h-100" style="width: 18rem;">
+    $('#movie-container').append(
+        `<div class="card h-100" style="width: 18rem;">
     <img src=${movie.poster} class="card-img-top" alt="...">
     <div class="card-body">
     <h5 class="card-title">${movie.title} (${movie.year})</h5>
