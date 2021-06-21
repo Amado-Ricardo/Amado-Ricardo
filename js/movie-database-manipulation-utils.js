@@ -1,9 +1,15 @@
-init();
+
+$(document).ready(function () {
+    setTimeout(function () {
+        init();
+    }, 3000);
+})
+
 
 function renderAddForm() {
 
     $('#addMoviesRatings').append(`   
-   <form name="Add movie">
+   <form name="Add movie" id="add-movie-form">
         <input id="add-title" name="" placeholder="Movie Title">
         <br>
         <input id="add-rating" name="" placeholder="Rating">
@@ -17,20 +23,57 @@ function init() {
     renderAddForm();
 }
 
+function renderEditForm(movie){
 
-function renderEditForm(id){
+        $('#edit-container').empty();
 
-    $('#edit-movie').append(`
-    <form name="Edit movie">
-    <input id="edit-title" class="d-flex align-items-center m-auto" placeholder="Movie Title">
-    <input id="edit-year" class="d-flex align-items-center m-auto" placeholder="Year">
-    <input id="edit-poster" class="d-flex align-items-center m-auto" placeholder="Poster">
-    <input id="edit-genre" class="d-flex align-items-center m-auto" placeholder="Genre">
-    <input id="edit-actor" class="d-flex align-items-center m-auto" placeholder="Actor">
-    <input id="edit-director" class="d-flex align-items-center m-auto" placeholder="Director">
-    <input id="edit-plot" class="d-flex align-items-center m-auto" placeholder="Plot">
-    <input id="edit-rating" class="d-flex align-items-center m-auto" placeholder="Rating">
-    <br><br>
-    <button class="btn btn-primary d-flex align-items-center m-auto" onclick="postEdit(event,${id})">Update</button>
-</form>`)
+        let year = movie.year;
+        let actors = movie.actors;
+        let director = movie.director;
+        let plot = movie.plot;
+        let genre = movie.genre;
+
+        if(!year && !actors && !director && !plot && !genre){
+
+            let year = "";
+            let actors = "";
+            let director = "";
+            let plot = "";
+            let genre = "";
+
+            $('#edit-container').append(`
+         <div id="edit-movie">
+            <form name="Edit movie">
+                <input id="edit-title" class="d-flex align-items-center m-auto" placeholder="Movie Title" value="${movie.title}">
+                <input id="edit-year" class="d-flex align-items-center m-auto" placeholder="Year" value="${year}">
+                <input id="edit-poster" class="d-flex align-items-center m-auto" placeholder="Poster" value="${movie.poster}">
+                <input id="edit-genre" class="d-flex align-items-center m-auto" placeholder="Genre" value="${genre}">
+                <input id="edit-actors" class="d-flex align-items-center m-auto" placeholder="Actors" value="${actors}">
+                <input id="edit-director" class="d-flex align-items-center m-auto" placeholder="Director" value="${director}">
+                <input id="edit-plot" class="d-flex align-items-center m-auto" placeholder="Plot" value="${plot}">
+                <input id="edit-rating" class="d-flex align-items-center m-auto" placeholder="Rating" value="${movie.rating}">
+                <br><br>
+                <button class="btn btn-primary d-flex align-items-center m-auto" id="update-btn" onclick="postEdit(event,${movie.id})">Update</button>
+            </form>
+        </div>
+        `);
+        } else {
+            $('#edit-container').append(`
+         <div id="edit-movie">
+            <form name="Edit movie">
+                <input id="edit-title" class="d-flex align-items-center m-auto" placeholder="Movie Title" value="${movie.title}">
+                <input id="edit-year" class="d-flex align-items-center m-auto" placeholder="Year" value="${movie.year}">
+                <input id="edit-poster" class="d-flex align-items-center m-auto" placeholder="Poster" value="${movie.poster}">
+                <input id="edit-genre" class="d-flex align-items-center m-auto" placeholder="Genre" value="${movie.genre}">
+                <input id="edit-actors" class="d-flex align-items-center m-auto" placeholder="Actors" value="${movie.actors}">
+                <input id="edit-director" class="d-flex align-items-center m-auto" placeholder="Director" value="${movie.director}">
+                <input id="edit-plot" class="d-flex align-items-center m-auto" placeholder="Plot" value="${movie.plot}">
+                <input id="edit-rating" class="d-flex align-items-center m-auto" placeholder="Rating" value="${movie.rating}">
+                <br><br>
+                <button class="btn btn-primary d-flex align-items-center m-auto" id="update-btn" onclick="postEdit(event,${movie.id})">Update</button>
+            </form>
+        </div>
+        `);
+        }
+
 }
