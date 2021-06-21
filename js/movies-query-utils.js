@@ -13,6 +13,8 @@ function postMovie() {
 
     $.post('https://spice-ultra-nape.glitch.me/movies', {title, rating}, function (response) {
         console.log(response);
+        $('#add-title').val('');
+        $('#add-rating').val('');
         getAllMovies();
     })
 }
@@ -24,14 +26,14 @@ function postEdit(e, id) {
     let title = $('#edit-title').val();
     let year = $('#edit-year').val();
     let genre = $('#edit-genre').val();
-    let actor = $('#edit-actor').val();
+    let actors = $('#edit-actors').val();
     let director = $('#edit-director').val();
     let plot = $('#edit-plot').val();
     let rating = $('#edit-rating').val();
     let poster = $('#edit-poster').val();
 
     let obj = {
-        title, genre, actor, director, plot, rating, year, poster
+        title, genre, actors, director, plot, rating, year, poster
     }
     console.log(obj);
 
@@ -41,8 +43,8 @@ function postEdit(e, id) {
     console.log(obj);
 
     $.ajax(`https://spice-ultra-nape.glitch.me/movies/${id}`, {method: 'PATCH', data: obj}).done(res => {
-        getAllMovies()
-        console.log(res)
+        $('#edit-container').empty();
+        getAllMovies();
     })
 }
 

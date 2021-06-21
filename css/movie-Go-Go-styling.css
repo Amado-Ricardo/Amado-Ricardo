@@ -14,30 +14,72 @@
 
 }
 
+@media only screen and (min-width: 600px) and (max-width: 991px){
+
+    #movie-container {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 1fr;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    footer {
+        display: none;
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+
+    #movie-container {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 1fr;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+    #movie-container {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 1fr;
+        gap: 1rem;
+        justify-content: center;
+    }
+}
+
     .lds-facebook {
         display: inline-block;
         position: relative;
-        width: 80px;
-        height: 80px;
+        width: 100%;
+        height: 150px;
     }
     .lds-facebook div {
         display: inline-block;
         position: absolute;
-        left: 8px;
+        right: 8px;
         width: 16px;
-        background: black;
+        background: white;
         animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
     }
     .lds-facebook div:nth-child(1) {
-        left: 8px;
+        left: 48%;
         animation-delay: -0.24s;
     }
     .lds-facebook div:nth-child(2) {
-        left: 32px;
+        left: 50%;
         animation-delay: -0.12s;
     }
     .lds-facebook div:nth-child(3) {
-        left: 56px;
+        left: 52%;
         animation-delay: 0;
     }
 
@@ -52,8 +94,6 @@
                 height: 32px;
             }
     }
-
-@media only screen and (min-width: 600px) {
 
     #neon-header {
         margin-top: 10em;
@@ -94,21 +134,9 @@
         background-color: #ffffff;
     }
 
-    #movie-container {
-        display: grid;
-        grid-template-rows: 1fr;
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 1fr;
-        gap: 0.5rem;
-        place-items: start center;
-    }
-
     .card-img-top {
-        max-height: 50vh;
-        object-fit: cover;
-        object-position: center top;
-        }
-}
+        height: 50%;
+    }
 
     body {
         background-color: black;
@@ -126,6 +154,29 @@
         color: white;
     }
 
+    .card-footer-container {
+        background-color: #1e272e;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .movie-details-container {
+        padding: 0;
+    }
+
+    .overflow-plot {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .overflow {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
     /*Neon text for Header*/
 
@@ -188,6 +239,8 @@
             color: #146C80;
         }
     }
+
+
 
 
 
