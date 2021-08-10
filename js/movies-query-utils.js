@@ -11,7 +11,7 @@ function postMovie() {
     let title = $('#add-title').val();
     let rating = $('#add-rating').val();
 
-    $.post('http://localhost:8080/movies', {title, rating}, function (response) {
+    $.post('http://localhost:8080/movies', [{title, rating}], function (response) {
         console.log(response);
         $('#add-title').val('');
         $('#add-rating').val('');
@@ -53,7 +53,7 @@ function sendDelete(id) {
 
     $.ajax(`http://localhost:8080/movies`, {
         method: "DELETE",
-        body: id
+        body: JSON.stringify(id)
     }).done(res => {
         getAllMovies()
     })
