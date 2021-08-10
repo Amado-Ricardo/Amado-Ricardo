@@ -1,5 +1,5 @@
 function getAllMovies() {
-    $.ajax('https://spice-ultra-nape.glitch.me/movies')
+    $.ajax('http://localhost:8080/movies')
         .then(response => {
             $('#loader').hide();
             renderMovies(response);
@@ -11,7 +11,7 @@ function postMovie() {
     let title = $('#add-title').val();
     let rating = $('#add-rating').val();
 
-    $.post('https://spice-ultra-nape.glitch.me/movies', {title, rating}, function (response) {
+    $.post('http://localhost:8080/movies', {title, rating}, function (response) {
         console.log(response);
         $('#add-title').val('');
         $('#add-rating').val('');
@@ -33,7 +33,7 @@ function postEdit(e, id) {
     let poster = $('#edit-poster').val();
 
     let obj = {
-        title, genre, actors, director, plot, rating, year, poster
+        title, genre, actors, director, plot, rating, year, poster, id
     }
     console.log(obj);
 
@@ -42,7 +42,7 @@ function postEdit(e, id) {
     obj = Object.fromEntries(filter)
     console.log(obj);
 
-    $.ajax(`https://spice-ultra-nape.glitch.me/movies/${id}`, {method: 'PATCH', data: obj}).done(res => {
+    $.ajax(`http://localhost:8080/movies`, {method: 'PUT', data: obj}).done(res => {
         $('#edit-container').empty();
         getAllMovies();
     })
@@ -50,8 +50,10 @@ function postEdit(e, id) {
 
 function sendDelete(id) {
 
-    $.ajax(`https://spice-ultra-nape.glitch.me/movies/${id}`, {
+
+    $.ajax(`http://localhost:8080/movies`, {
         method: "DELETE",
+        body: id
     }).done(res => {
         getAllMovies()
     })
