@@ -1,9 +1,18 @@
 function getAllMovies() {
-    $.ajax('http://localhost:8080/movies')
+    $.ajax('http://localhost:8080/movies', {
+        method: 'GET',
+
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': "http://localhost:8080"
+        },
+        redirect: 'follow'
+    })
         .then(response => {
             $('#loader').hide();
             renderMovies(response);
         })
+
 }
 
 function postMovie() {
