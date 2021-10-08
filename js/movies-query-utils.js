@@ -1,9 +1,17 @@
 function getAllMovies() {
-    $.ajax('http://localhost:8080/movies')
-        .then(response => {
+    $.ajax('http://localhost:8080/movies', {
+        method: 'GET',
+
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        redirect: 'follow'
+    })
+        .then(data => {
             $('#loader').hide();
-            renderMovies(response);
+            renderMovies(data);
         })
+
 }
 
 function postMovie() {
@@ -11,11 +19,23 @@ function postMovie() {
     let title = $('#add-title').val();
     let rating = $('#add-rating').val();
 
-    $.post('http://localhost:8080/movies', {title, rating}, function (response) {
-        console.log(response);
-        $('#add-title').val('');
-        $('#add-rating').val('');
-        getAllMovies();
+    // $.ajax('http://localhost:8080/movies', [{title, rating}], function (response) {
+    $.ajax({
+
+        type: "POST",
+        url: 'http://localhost:8080/movies',
+
+        function(response){
+            console.log(response);
+            console.log(title);
+            console.log(rating);
+
+            $('#add-title').val('');
+            $('#add-rating').val('');
+            getAllMovies();
+
+        }
+
     })
 }
 
@@ -53,7 +73,7 @@ function sendDelete(id) {
 
     $.ajax(`http://localhost:8080/movies`, {
         method: "DELETE",
-        body: id
+        body: JSON.stringify(id)
     }).done(res => {
         getAllMovies()
     })
