@@ -3,14 +3,13 @@ function getAllMovies() {
         method: 'GET',
 
         headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': "http://localhost:8080"
+            'Content-Type': 'application/json'
         },
         redirect: 'follow'
     })
-        .then(response => {
+        .then(data => {
             $('#loader').hide();
-            renderMovies(response);
+            renderMovies(data);
         })
 
 }
@@ -20,11 +19,23 @@ function postMovie() {
     let title = $('#add-title').val();
     let rating = $('#add-rating').val();
 
-    $.post('http://localhost:8080/movies', [{title, rating}], function (response) {
-        console.log(response);
-        $('#add-title').val('');
-        $('#add-rating').val('');
-        getAllMovies();
+    // $.ajax('http://localhost:8080/movies', [{title, rating}], function (response) {
+    $.ajax({
+
+        type: "POST",
+        url: 'http://localhost:8080/movies',
+
+        function(response){
+            console.log(response);
+            console.log(title);
+            console.log(rating);
+
+            $('#add-title').val('');
+            $('#add-rating').val('');
+            getAllMovies();
+
+        }
+
     })
 }
 
