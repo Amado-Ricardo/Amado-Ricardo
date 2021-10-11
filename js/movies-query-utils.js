@@ -18,25 +18,27 @@ function postMovie() {
 
     let title = $('#add-title').val();
     let rating = $('#add-rating').val();
+    rating = rating.toString();
 
-    // $.ajax('http://localhost:8080/movies', [{title, rating}], function (response) {
-    $.ajax({
+    $.ajax('http://localhost:8080/movies', {
 
-        type: "POST",
-        url: 'http://localhost:8080/movies',
+        method: 'POST',
+        data: "{title: title, rating: rating}",
+        contentType: "application/json",
+        dataType: "json"
+    }).done(response => {
 
-        function(response){
-            console.log(response);
-            console.log(title);
-            console.log(rating);
+        console.log(response);
+        console.log(title);
+        console.log(rating);
 
-            $('#add-title').val('');
-            $('#add-rating').val('');
-            getAllMovies();
 
-        }
+        $('#add-title').val('');
+        $('#add-rating').val('');
+        getAllMovies();
 
     })
+
 }
 
 function postEdit(e, id) {
