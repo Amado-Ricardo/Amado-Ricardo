@@ -16,28 +16,38 @@ function getAllMovies() {
 
 function postMovie() {
 
-    let title = $('#add-title').val();
-    let rating = $('#add-rating').val();
-    rating = rating.toString();
+    // let title = $('#add-title').val();
+    // let rating = $('#add-rating').val();
 
-    $.ajax('http://localhost:8080/movies', {
+    let post = {
+        title: $('#add-title').val(),
+        rating: $('#add-rating').val()
+    }
 
-        method: 'POST',
-        data: "{title: title, rating: rating}",
-        contentType: "application/json",
-        dataType: "json"
-    }).done(response => {
+    let request = {
+        method: "POST",
+        header: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(post)
+    };
 
-        console.log(response);
-        console.log(title);
-        console.log(rating);
+    fetch("http://localhost:8080/movies", request)
+        .then((response) => {
+            console.log(response.status)
+            if(response.status === 200) {
+                console.log("we made it!");
+                console.log(response);
+                console.log(post.title);
+                console.log(post.rating);
 
 
-        $('#add-title').val('');
-        $('#add-rating').val('');
-        getAllMovies();
-
-    })
+                $('#add-title').val('');
+                $('#add-rating').val('');
+                getAllMovies();
+            }
+        });
 
 }
 
