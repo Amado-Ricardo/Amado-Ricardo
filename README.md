@@ -1,5 +1,11 @@
 # Amado-Ricardo
 
+This project is no longer runable. This code is formatted to run with Tomcat, and IntelliJ CE does not support tomcat configurations. A newer, and up to date project can be found at this repository https://github.com/amadoazua3/Movies-Backend
+
+
+
+
+
 Movies Application
 For this project, we will be building a single page movie application (SPA). It will allow users to add, edit, and delete movies, as well as rate them. We will be using json-server to mock a database and our backend, so that we can just worry about the front end and AJAX requests.
 
